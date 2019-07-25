@@ -1,0 +1,47 @@
+{
+  "name": "twitter_graphql_api",
+  "version": "1.0.0",
+  "description": "basic twitter api practice with GraphQL, PostgreSQL, Express, Node --> Users & Messaging",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otteb/twitter_GraphQL_API.git"
+  },
+  "author": "Brian R. Otte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otteb/twitter_GraphQL_API/issues"
+  },
+  "homepage": "https://github.com/otteb/twitter_GraphQL_API#readme",
+  "dependencies": {
+    "apollo-server": "^2.7.0",
+    "apollo-server-express": "^2.7.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "graphql": "^14.4.2",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "passport": "^0.4.0",
+    "pg": "^7.11.0",
+    "sequelize": "^5.10.2",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "nodemon": "^1.19.1"
+  }
+}
