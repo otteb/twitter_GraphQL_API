@@ -4,15 +4,13 @@ import uuidv4 from 'uuid/v4';
 export default {
   Query: {
     messages: (parent, args, { models, me}) => {
-      // console.log("CURRENT [me] USER: ",me);//testing
-      if(!me){
+      if(!me){ //check permission
         throw new Error("Not Authorized");
       }
       return Object.values(models.messages);
     },
     message: (parent, { id }, { models, me}) => {
-      // console.log("CURRENT [me] USER: ",me);//testing
-      if(!me){
+      if(!me){ //check permission
         throw new Error("Not Authorized");
       }
       return models.messages[id];
@@ -21,7 +19,6 @@ export default {
 
   Mutation: {
     createMessage: (parent, { text }, { me, models }) => {
-      // console.log("CURRENT [me] USER: ",me);//testing
       if(!me){//check permissions:
         throw new Error("Not Authorized");
       }
@@ -35,20 +32,21 @@ export default {
       };
       //add new message to temp DB:
       models.messages[id] = message;
-      // console.log("NEW MESSAGE: ", message); //testing
       //add message to user's messages:
-      models.users[me.id].messageIds.push(id);
+      models.users[me.id].messages.push(id); //PROBLEM HERE
       //return the message as confirmation:
       return message;
     },
 
-    deleteMessage: (parent, { id }, { models }) => {
-      // console.log("CURRENT [me] USER: ",me);//testing
+    deleteMessage: (parent, { id }, { models, me}) => {
+      console.log("CURRENT [me] USER: ",me);//testing
       if(!me){//check permissions:
         throw new Error("Not Authorized");
       }
       //retrieve message:
       const { [id]: message, ...otherMessages } = models.messages;
+      console.log("MESSAGE: ", message);
+      console.log("OTHER_MESSAGES: ", otherMessages);
       //check the message exists:
       if (!message) {
         return false;//Doesn't exist to delete:

@@ -53,11 +53,13 @@ export default {
       //generate unique ID:
       const id = uuidv4();
       //assemble new user:
+      const messages = []; //no messages yet:
       const new_user = {
         id,
         username,
         email,
         password,
+        messages, //add this so it can be pushed from start:
       };
       //add new user to data file:
       models.users[id] = new_user;
@@ -82,11 +84,11 @@ export default {
       //correct login information --> generate webtoken:
       const token = await jwt.sign(
         {
-          user: _.pick(result[0], ['id', 'username']),
+          user: _.pick(result[0], ['id', 'username']), //lodash... basically for the utility
         },
         SECRET,
         {
-          expiresIn: '1y',
+          expiresIn: '1y', //one year
         }
       );
 
