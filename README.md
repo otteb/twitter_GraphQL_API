@@ -3,7 +3,9 @@
 # INSTALLATION:
 
 [1] Clone repo into local folder - git clone https://github.com/otteb/twitter_GraphQL_API.git
+
 [2] run cmd: "npm install" - this will download all dependencies.
+
 [3] run cmd: "npm start" - this starts the server on PORT 8000 - go to:
     "http://localhost:8000/graphql" in your Chrome Browser.
 
